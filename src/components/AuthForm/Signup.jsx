@@ -133,9 +133,7 @@ function Signup() {
                     : ''}
                 </FieldError>
               </FieldContainer>
-              <AuthButton type="submit" primary>
-                Signup
-              </AuthButton>
+              <AuthButton type="submit">Signup</AuthButton>
               <AuthText>
                 Already have an account?
                 <AuthFormLink to="/login">Login here</AuthFormLink>

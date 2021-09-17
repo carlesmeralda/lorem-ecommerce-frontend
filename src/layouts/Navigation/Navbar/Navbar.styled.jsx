@@ -22,6 +22,8 @@ export const Nav = styled.nav`
   height: 60px;
   padding: 0 1em;
   width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
   color: #222;
 `
 
@@ -44,6 +46,7 @@ export const NavMiddle = styled.div`
 export const NavRight = styled.div`
   display: flex;
   font-size: 1.4rem;
+  align-self: center;
 `
 
 export const ToggleDrawer = styled.div`

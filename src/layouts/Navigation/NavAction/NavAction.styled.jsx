@@ -9,10 +9,12 @@ import { FiHeart, FiSearch } from 'react-icons/fi'
 export const NavDiv = styled.div`
   margin: 0 0.5em;
   cursor: pointer;
+  display: flex;
 `
 
 export const NavActionLink = styled(Link)`
   color: #222;
+  display: flex;
 `
 
 export const NavCart = styled(RiShoppingCartLine)``

@@ -4,15 +4,16 @@ import Login from './components/AuthForm/Login'
 import Signup from './components/AuthForm/Signup'
 
 import GlobalStyles from './globalStyles'
-import Navbar from './layouts/Navigation/Navbar/Navbar'
+import Homepage from './pages/Homepage'
 
 function App() {
   return (
     <>
       <GlobalStyles />
-      <Navbar />
-
       <Switch>
+        <Route path="/" exact>
+          <Homepage />
+        </Route>
         <Route path="/login">
           <Login />
         </Route>
