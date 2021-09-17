@@ -1,20 +1,34 @@
 import React from 'react'
-import { NavItem, NavLink, NavList } from './NavMenu.styled'
+import {
+  NavItem,
+  NavItemLogo,
+  NavLink,
+  NavLinkLogo,
+  NavList,
+} from './NavMenu.styled'
+import Logo from '../../../components/Logo/Logo'
 
-function NavMenu() {
+function NavMenu({ open }) {
   return (
-    <NavList>
+    <NavList open={open}>
+      <NavItemLogo>
+        <NavLinkLogo>
+          <Logo />
+        </NavLinkLogo>
+      </NavItemLogo>
       <NavItem>
-        <NavLink>Home</NavLink>
+        <NavLink to="about" activeClass="active">
+          About
+        </NavLink>
       </NavItem>
       <NavItem>
-        <NavLink>About</NavLink>
+        <NavLink to="product">Product</NavLink>
       </NavItem>
       <NavItem>
-        <NavLink>Contact</NavLink>
+        <NavLink to="explore">Explore</NavLink>
       </NavItem>
       <NavItem>
-        <NavLink>Products</NavLink>
+        <NavLink to="contact">Contact</NavLink>
       </NavItem>
     </NavList>
   )

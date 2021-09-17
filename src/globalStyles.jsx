@@ -8,8 +8,9 @@ const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     font-size: 1.1rem;
-    font-family: "Roboto", sans-serif;
+    font-family: "Quicksand", sans-serif;
     line-height: 1.3rem;
+    background-color: #f3eed9
   }
 
   img {

@@ -1,4 +1,5 @@
 import { Route, Switch } from 'react-router-dom'
+
 import Login from './components/AuthForm/Login'
 import Signup from './components/AuthForm/Signup'
 
@@ -9,7 +10,8 @@ function App() {
   return (
     <>
       <GlobalStyles />
-      {/* <Navbar /> */}
+      <Navbar />
+
       <Switch>
         <Route path="/login">
           <Login />
