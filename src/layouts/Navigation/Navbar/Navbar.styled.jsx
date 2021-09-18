@@ -13,6 +13,7 @@ export const Header = styled.header`
   box-shadow: 0 1px 3px rgba(15, 15, 15, 0.25);
   display: flex;
   align-items: center;
+  z-index: 999;
 `
 
 export const Nav = styled.nav`

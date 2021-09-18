@@ -8,7 +8,6 @@ export const Button = styled.button`
   font-family: 'Quicksand', sans-serif;
   border: none;
   cursor: pointer;
-  border-radius: 4px;
 
   &:hover {
     opacity: 0.9;
