@@ -10,7 +10,7 @@ function Homepage() {
       <Navbar />
       <Hero />
       <About />
-      {/* <Products /> */}
+      <Products />
     </>
   )
 }

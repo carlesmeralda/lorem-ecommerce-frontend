@@ -81,7 +81,7 @@ export const AboutPara = styled.p`
   }
 
   @media screen and (min-width: 900px) {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 `
 
