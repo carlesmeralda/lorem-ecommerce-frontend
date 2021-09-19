@@ -45,7 +45,7 @@ export const NavItem = styled.li`
     transition: all 200ms ease-in-out;
 
     &:hover {
-      border-bottom: 2px solid burlywood;
+      border-bottom: 2px solid #fbc02d;
     }
 
     &.active {
@@ -66,6 +66,7 @@ export const NavLinkLogo = styled(SLink)`
   align-items: center;
   text-align: center;
   font-size: 2.5rem;
+  cursor: pointer;
 
   @media screen and (min-width: 769px) {
     font-size: 1.8rem;

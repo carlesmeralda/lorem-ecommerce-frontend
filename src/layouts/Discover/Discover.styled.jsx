@@ -23,6 +23,7 @@ export const DiscoverTitle = styled.h2`
   font-style: italic;
   font-size: 2.5rem;
   color: #f3eed9;
+  margin-top: 0;
 
   @media screen and (min-width: 768px) {
     font-size: 3rem;
@@ -37,6 +38,10 @@ export const DiscoverBody = styled.div`
     grid-template-columns: 1fr 1fr;
     gap: 0 1rem;
   }
+
+  @media screen and (min-width: 1000px) {
+    gap: 0 3rem;
+  }
 `
 
 export const DiscoverInfo = styled.div`
@@ -45,6 +50,10 @@ export const DiscoverInfo = styled.div`
   text-align: center;
   margin: 3em 0;
   max-width: 350px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 
   @media screen and (min-width: 768px) {
     margin: 2em 0;

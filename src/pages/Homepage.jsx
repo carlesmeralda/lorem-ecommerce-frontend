@@ -4,6 +4,7 @@ import Hero from '../layouts/Hero/Hero'
 import About from '../layouts/About/About'
 import Products from '../layouts/Products/Products'
 import Discover from '../layouts/Discover/Discover'
+import Contact from '../layouts/Contact/Contact'
 
 function Homepage() {
   return (
@@ -13,6 +14,7 @@ function Homepage() {
       <About />
       <Products />
       <Discover />
+      <Contact />
     </>
   )
 }
