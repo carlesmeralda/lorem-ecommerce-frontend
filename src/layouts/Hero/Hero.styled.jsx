@@ -1,16 +1,11 @@
 import styled from 'styled-components'
 
-import { Container } from '../../components/Container'
 import { Button } from '../../components/Button'
 
 export const HeroSection = styled.section`
   margin-top: 60px;
   background: #f3eed9;
   padding: 3rem 0;
-`
-
-export const HeroContainer = styled(Container)`
-  width: 85%;
 `
 
 export const HeroContent = styled.div`
@@ -86,10 +81,10 @@ export const HeroTitle = styled.h1`
 `
 
 export const HeroText = styled.p`
-  font-size: 0.8rem;
+  font-size: 1rem;
 
   @media screen and (min-width: 900px) {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 `
 

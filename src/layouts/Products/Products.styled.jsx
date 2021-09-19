@@ -1,12 +1,9 @@
 import styled from 'styled-components'
-import { Container } from '../../components/Container'
 
 export const ProductSection = styled.section`
   background-color: #222;
   padding: 60px 0;
 `
-
-export const ProductContainer = styled(Container)``
 
 export const ProductContent = styled.div`
   display: flex;

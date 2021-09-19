@@ -1,12 +1,7 @@
 import styled from 'styled-components'
-import { Container } from '../../components/Container'
 
 export const AboutSection = styled.section`
   padding: 60px 0;
-`
-
-export const AboutContainer = styled(Container)`
-  width: 85%;
 `
 
 export const AboutContent = styled.div`

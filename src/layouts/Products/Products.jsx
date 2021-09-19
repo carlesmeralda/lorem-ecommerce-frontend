@@ -1,12 +1,13 @@
 import React from 'react'
 import {
   ProductSection,
-  ProductContainer,
   ProductH1,
   ProductSample,
   ProductButton,
   ProductContent,
 } from './Products.styled'
+
+import { Container } from '../../components/Container'
 
 import ProductCard from '../../components/ProductCard/ProductCard'
 
@@ -70,7 +71,7 @@ const products = [
 function Products() {
   return (
     <ProductSection>
-      <ProductContainer>
+      <Container>
         <ProductContent>
           <ProductH1>Our Products</ProductH1>
           <ProductSample>
@@ -80,7 +81,7 @@ function Products() {
           </ProductSample>
           <ProductButton>View All Products</ProductButton>
         </ProductContent>
-      </ProductContainer>
+      </Container>
     </ProductSection>
   )
 }

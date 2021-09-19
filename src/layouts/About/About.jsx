@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  AboutContainer,
   AboutContent,
   AboutGraphic,
   AboutHeading,
@@ -11,13 +10,14 @@ import {
   AboutText,
   AboutTitle,
 } from './About.styled'
+import { Container } from '../../components/Container'
 
 import about from '../../assets/image/about.svg'
 
 function About() {
   return (
     <AboutSection>
-      <AboutContainer>
+      <Container>
         <AboutContent>
           <AboutHeading>
             <AboutTitle>Who are we?</AboutTitle>
@@ -37,7 +37,7 @@ function About() {
             <AboutImg src={about} alt="About Image" />
           </AboutGraphic>
         </AboutContent>
-      </AboutContainer>
+      </Container>
     </AboutSection>
   )
 }

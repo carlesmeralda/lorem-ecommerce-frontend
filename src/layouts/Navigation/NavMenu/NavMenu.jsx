@@ -25,7 +25,7 @@ function NavMenu({ open }) {
         <NavLink to="product">Product</NavLink>
       </NavItem>
       <NavItem>
-        <NavLink to="explore">Explore</NavLink>
+        <NavLink to="discover">Discover</NavLink>
       </NavItem>
       <NavItem>
         <NavLink to="contact">Contact</NavLink>

@@ -1,7 +1,6 @@
 import React from 'react'
 import {
   HeroButton,
-  HeroContainer,
   HeroContent,
   HeroGraphic,
   HeroImage,
@@ -10,13 +9,14 @@ import {
   HeroText,
   HeroTitle,
 } from './Hero.styled'
+import { Container } from '../../components/Container'
 
 import hero from '../../assets/image/hero.svg'
 
 function Hero() {
   return (
     <HeroSection>
-      <HeroContainer>
+      <Container>
         <HeroContent>
           <HeroInfo>
             <HeroTitle>
@@ -35,7 +35,7 @@ function Hero() {
             <HeroImage src={hero} />
           </HeroGraphic>
         </HeroContent>
-      </HeroContainer>
+      </Container>
     </HeroSection>
   )
 }
