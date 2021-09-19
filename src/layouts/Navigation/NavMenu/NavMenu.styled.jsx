@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import { Link as SLink } from 'react-scroll'
+import { Link as RLink } from 'react-router-dom'
 
 export const NavList = styled.ul`
   position: fixed;
@@ -10,7 +11,7 @@ export const NavList = styled.ul`
   height: 100vh;
   width: 70%;
   margin: 0;
-  padding-top: 3.5em;
+  padding-top: 2.5em;
   transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-100%)')};
   transition: transform 0.3s ease-in-out;
 
@@ -28,7 +29,7 @@ export const NavList = styled.ul`
 `
 
 export const NavItem = styled.li`
-  padding: 3em 1em 3em 0;
+  padding: 2em 1em 2em 0;
   text-transform: uppercase;
   border-bottom: 1px solid burlywood;
   cursor: pointer;
@@ -47,20 +48,20 @@ export const NavItem = styled.li`
     &:hover {
       border-bottom: 2px solid #fbc02d;
     }
-
-    &.active {
-      color: red;
-    }
   }
 `
-
-export const NavLink = styled(SLink)``
 
 export const NavItemLogo = styled.li`
   margin-right: 1em;
 `
 
-export const NavLinkLogo = styled(SLink)`
+export const NavLink = styled(SLink)`
+  &.active {
+    color: #fbc02d;
+  }
+`
+
+export const NavLinkLogo = styled(RLink)`
   color: #222;
   display: flex;
   align-items: center;

@@ -15,12 +15,12 @@ function NavAction() {
         <NavSearch />
       </NavDiv>
       <NavDiv>
-        <NavActionLink>
+        <NavActionLink to="/#">
           <NavFavorite />
         </NavActionLink>
       </NavDiv>
       <NavDiv>
-        <NavActionLink>
+        <NavActionLink to="/#">
           <NavCart />
         </NavActionLink>
       </NavDiv>

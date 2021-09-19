@@ -16,7 +16,7 @@ import about from '../../assets/image/about.svg'
 
 function About() {
   return (
-    <AboutSection>
+    <AboutSection id="about">
       <Container>
         <AboutContent>
           <AboutHeading>

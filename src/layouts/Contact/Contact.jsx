@@ -21,7 +21,7 @@ import { Button } from '../../components/Button'
 
 function Contact() {
   return (
-    <ContactFooter>
+    <ContactFooter id="contact">
       <Container>
         <ContactContent>
           <ContactAccess>

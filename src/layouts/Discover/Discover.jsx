@@ -17,7 +17,7 @@ import { Container } from '../../components/Container'
 
 function Discover() {
   return (
-    <DiscoverSection>
+    <DiscoverSection id="discover">
       <Container>
         <DiscoverContent>
           <DiscoverTitle>Discover</DiscoverTitle>

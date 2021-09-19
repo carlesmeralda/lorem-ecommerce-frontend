@@ -15,7 +15,7 @@ import hero from '../../assets/image/hero.svg'
 
 function Hero() {
   return (
-    <HeroSection>
+    <HeroSection id="home">
       <Container>
         <HeroContent>
           <HeroInfo>

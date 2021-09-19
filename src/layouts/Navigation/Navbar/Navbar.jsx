@@ -16,16 +16,18 @@ import NavMenu from '../NavMenu/NavMenu'
 function Navbar() {
   const [open, setOpen] = useState(false)
 
-  const openHandler = () => setOpen(!open)
+  const toggleHandler = () => setOpen(prev => !prev)
+
+  const closeHandler = () => setOpen(false)
 
   return (
     <Header>
       <Nav>
         <NavLeft>
-          <ToggleDrawer onClick={openHandler}>
+          <ToggleDrawer onClick={toggleHandler}>
             {open ? <DrawerClose /> : <DrawerOpen />}
           </ToggleDrawer>
-          <NavMenu open={open} />
+          <NavMenu open={open} closeHandler={closeHandler} />
         </NavLeft>
         <NavMiddle>
           <Logo />

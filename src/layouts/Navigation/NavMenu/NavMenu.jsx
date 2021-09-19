@@ -2,33 +2,84 @@ import React from 'react'
 import {
   NavItem,
   NavItemLogo,
-  NavLink,
   NavLinkLogo,
   NavList,
+  NavLink,
 } from './NavMenu.styled'
 import Logo from '../../../components/Logo/Logo'
 
-function NavMenu({ open }) {
+function NavMenu({ open, closeHandler }) {
   return (
     <NavList open={open}>
       <NavItemLogo>
-        <NavLinkLogo>
+        <NavLinkLogo to="/">
           <Logo />
         </NavLinkLogo>
       </NavItemLogo>
       <NavItem>
-        <NavLink to="about" activeClass="active">
+        <NavLink
+          to="home"
+          spy
+          smooth
+          duration={500}
+          offset={-60}
+          activeClass="active"
+          onClick={closeHandler}
+        >
+          Home
+        </NavLink>
+      </NavItem>
+      <NavItem>
+        <NavLink
+          to="about"
+          spy
+          smooth
+          duration={500}
+          offset={-60}
+          activeClass="active"
+          onClick={closeHandler}
+        >
           About
         </NavLink>
       </NavItem>
       <NavItem>
-        <NavLink to="product">Product</NavLink>
+        <NavLink
+          to="product"
+          spy
+          smooth
+          duration={500}
+          offset={-60}
+          activeClass="active"
+          onClick={closeHandler}
+        >
+          Product
+        </NavLink>
       </NavItem>
       <NavItem>
-        <NavLink to="discover">Discover</NavLink>
+        <NavLink
+          to="discover"
+          spy
+          smooth
+          duration={500}
+          offset={-60}
+          activeClass="active"
+          onClick={closeHandler}
+        >
+          Discover
+        </NavLink>
       </NavItem>
       <NavItem>
-        <NavLink to="contact">Contact</NavLink>
+        <NavLink
+          to="contact"
+          spy
+          smooth
+          duration={500}
+          offset={-60}
+          activeClass="active"
+          onClick={closeHandler}
+        >
+          Contact
+        </NavLink>
       </NavItem>
     </NavList>
   )

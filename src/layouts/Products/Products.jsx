@@ -70,7 +70,7 @@ const products = [
 
 function Products() {
   return (
-    <ProductSection>
+    <ProductSection id="product">
       <Container>
         <ProductContent>
           <ProductH1>Our Products</ProductH1>
