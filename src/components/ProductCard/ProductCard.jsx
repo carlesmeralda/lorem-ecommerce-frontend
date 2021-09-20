@@ -13,6 +13,13 @@ import {
 } from './ProductCard.styled'
 
 function ProductCard({ product }) {
+  let newDesc
+  if (product.description.length > 30) {
+    newDesc = product.description.slice(0, 31) + '...'
+  } else {
+    newDesc = product.description
+  }
+
   return (
     <CardDiv>
       <CardLink>
@@ -21,7 +28,7 @@ function ProductCard({ product }) {
       <CardContent>
         <CardTitle>{product.name}</CardTitle>
         <CardPrice>{product.price}</CardPrice>
-        <CardDescription>{product.description}</CardDescription>
+        <CardDescription>{newDesc}</CardDescription>
         <AddCart>Add to Cart</AddCart>
         <AddWish primary>Add to WishList</AddWish>
       </CardContent>

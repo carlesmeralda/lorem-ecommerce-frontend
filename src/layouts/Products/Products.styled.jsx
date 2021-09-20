@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { Link } from 'react-router-dom'
+
 export const ProductSection = styled.section`
   background-color: #222;
   padding: 60px 0;
@@ -34,7 +36,7 @@ export const ProductSample = styled.div`
   }
 `
 
-export const ProductButton = styled.button`
+export const ProductButton = styled(Link)`
   font-size: 1rem;
   font-family: 'Quicksand', sans-serif;
   color: #fbc02d;

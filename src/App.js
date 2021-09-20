@@ -6,6 +6,7 @@ import ScrollToTop from './components/ScrollToTop'
 
 import GlobalStyles from './globalStyles'
 import Homepage from './pages/Homepage'
+import ProductsPage from './pages/ProductsPage'
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
       <Switch>
         <Route path="/" exact>
           <Homepage />
+        </Route>
+        <Route path="/products">
+          <ProductsPage />
         </Route>
         <Route path="/login">
           <Login />

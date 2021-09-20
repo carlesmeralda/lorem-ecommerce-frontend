@@ -42,7 +42,8 @@ const products = [
   {
     id: 'p4',
     name: 'A product',
-    description: 'a description',
+    description:
+      'a descriptiona descriptiona descriptiona descriptiona description',
     price: 10.99,
     category: 'Test',
     image:
@@ -79,7 +80,7 @@ function Products() {
               <ProductCard key={product.id} product={product} />
             ))}
           </ProductSample>
-          <ProductButton>View All Products</ProductButton>
+          <ProductButton to="/products">View All Products</ProductButton>
         </ProductContent>
       </Container>
     </ProductSection>
