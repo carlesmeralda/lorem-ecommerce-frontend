@@ -22,7 +22,7 @@ function ProductCard({ product }) {
 
   return (
     <CardDiv>
-      <CardLink>
+      <CardLink to="/">
         <CardImage src={product.image} alt={product.name} />
       </CardLink>
       <CardContent>
