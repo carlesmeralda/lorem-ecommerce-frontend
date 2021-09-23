@@ -6,7 +6,7 @@ import ScrollToTop from './components/ScrollToTop'
 
 import GlobalStyles from './globalStyles'
 import Homepage from './pages/Homepage'
-import ProductsPage from './pages/ProductsPage'
+import Shop from './pages/Shop'
 
 function App() {
   return (
@@ -17,8 +17,8 @@ function App() {
         <Route path="/" exact>
           <Homepage />
         </Route>
-        <Route path="/products">
-          <ProductsPage />
+        <Route path="/shop/products">
+          <Shop />
         </Route>
         <Route path="/login">
           <Login />

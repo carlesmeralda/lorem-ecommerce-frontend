@@ -68,19 +68,6 @@ function NavMenu({ open, closeHandler }) {
           Discover
         </NavLink>
       </NavItem>
-      <NavItem>
-        <NavLink
-          to="contact"
-          spy
-          smooth
-          duration={500}
-          offset={-60}
-          activeClass="active"
-          onClick={closeHandler}
-        >
-          Contact
-        </NavLink>
-      </NavItem>
     </NavList>
   )
 }

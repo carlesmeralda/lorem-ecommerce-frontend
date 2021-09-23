@@ -34,7 +34,7 @@ function Products() {
               <ProductCard key={product.id} product={product} />
             ))}
           </ProductSample>
-          <ProductButton to="/products">View All Products</ProductButton>
+          <ProductButton to="/shop/products">View All Products</ProductButton>
         </ProductContent>
       </Container>
     </ProductSection>

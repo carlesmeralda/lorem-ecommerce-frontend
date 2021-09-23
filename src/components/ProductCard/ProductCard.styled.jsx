@@ -17,6 +17,7 @@ export const CardImage = styled.img`
   height: 14rem;
   object-fit: cover;
   transition: all 0.3s ease-in;
+  width: 100%;
 
   &:hover {
     transform: scale(1.1);

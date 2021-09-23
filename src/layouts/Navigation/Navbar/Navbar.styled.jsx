@@ -38,6 +38,7 @@ export const NavMiddle = styled.div`
   align-items: center;
   cursor: pointer;
   font-size: 1.8rem;
+  padding-left: 2rem;
 
   @media screen and (min-width: 769px) {
     display: none;
@@ -47,7 +48,11 @@ export const NavMiddle = styled.div`
 export const NavRight = styled.div`
   display: flex;
   font-size: 1.4rem;
-  align-self: center;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  justify-content: flex-end;
 `
 
 export const ToggleDrawer = styled.div`

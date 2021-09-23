@@ -33,12 +33,13 @@ export const NavItem = styled.li`
   text-transform: uppercase;
   border-bottom: 1px solid burlywood;
   cursor: pointer;
+  font-size: 2rem;
 
   @media screen and (min-width: 769px) {
     height: 100%;
-    padding: 0 1em;
+    padding: 0 0.5em;
     text-transform: uppercase;
-    font-size: 1.1rem;
+    font-size: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -66,7 +67,6 @@ export const NavLinkLogo = styled(RLink)`
   display: flex;
   align-items: center;
   text-align: center;
-  font-size: 2.5rem;
   cursor: pointer;
 
   @media screen and (min-width: 769px) {
