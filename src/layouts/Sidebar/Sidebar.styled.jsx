@@ -2,17 +2,22 @@ import styled from 'styled-components'
 
 import { RiArrowRightSLine, RiArrowLeftSLine } from 'react-icons/ri'
 
-export const SidebarSection = styled.section`
+export const SidebarSection = styled.div`
   position: fixed;
   top: 60px;
   left: 0;
   background-color: #eee;
   width: 55%;
-  height: 100%;
+  height: calc(100vh - 60px);
   padding: 2rem 1rem;
   z-index: 11;
   transform: ${({ toggle }) => (toggle ? 'translateX(0)' : 'translateX(-95%)')};
   transition: transform 0.3s ease-in-out;
+
+  @media screen and (min-width: 900px) {
+    transform: none;
+    width: 260px;
+  }
 `
 
 export const SidebarContent = styled.div`
@@ -23,17 +28,21 @@ export const SidebarContent = styled.div`
 `
 
 export const SidebarRows = styled.div`
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
 `
 
-export const SidebarText = styled.span``
+export const SidebarText = styled.span`
+  font-size: 1.1rem;
+`
 
 export const SidebarQueries = styled.ul`
+  font-size: 1rem;
   border-right: 1px solid #ccc;
+  padding-left: 1.5rem;
 `
 
 export const SidebarItems = styled.li`
-  margin: 3px;
+  margin: 4px;
 `
 
 export const SidebarControl = styled.div`
@@ -46,6 +55,10 @@ export const SidebarControl = styled.div`
   border-radius: 100%;
   padding: 0;
   display: flex;
+
+  @media screen and (min-width: 900px) {
+    display: none;
+  }
 `
 
 export const ControlRight = styled(RiArrowRightSLine)``

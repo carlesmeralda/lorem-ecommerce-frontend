@@ -6,7 +6,7 @@ import ScrollToTop from './components/ScrollToTop'
 
 import GlobalStyles from './globalStyles'
 import Homepage from './pages/Homepage'
-import Shop from './pages/Shop'
+import Shop from './pages/Shop/Shop'
 
 function App() {
   return (

@@ -37,12 +37,12 @@ export const CardContent = styled.div`
 
 export const CardTitle = styled.span`
   grid-area: title;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 600;
 `
 
 export const CardPrice = styled.span`
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 400;
   grid-area: price;
   text-align: end;
@@ -58,7 +58,7 @@ export const CardPrice = styled.span`
 
 export const CardDescription = styled.span`
   grid-area: desc;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #a1a1a1;
 `
 
