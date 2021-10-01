@@ -23,6 +23,7 @@ function ProductShop() {
   return (
     <ProductShopSection>
       <ProductContainer>
+        <h1>All Products</h1>
         <ShopContent>
           {products.map(product => (
             <ProductCard key={product.id} product={product} />

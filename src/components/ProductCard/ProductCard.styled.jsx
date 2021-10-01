@@ -51,8 +51,8 @@ export const CardPrice = styled.span`
     content: '$';
     font-size: 1rem;
     position: relative;
-    top: -0.3rem;
     padding-right: 0.1rem;
+    top: -1px;
   }
 `
 

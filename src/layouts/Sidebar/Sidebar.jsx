@@ -48,6 +48,7 @@ function Sidebar() {
             <SidebarItems>Home & Living</SidebarItems>
             <SidebarItems>Health</SidebarItems>
             <SidebarItems>Travel</SidebarItems>
+            <SidebarItems>Entertainment</SidebarItems>
             <SidebarItems>Groceries</SidebarItems>
             <SidebarItems>Others</SidebarItems>
           </SidebarQueries>

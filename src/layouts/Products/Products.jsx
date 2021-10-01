@@ -15,7 +15,7 @@ function Products() {
   const [products, setProducts] = useState([])
 
   const { data, isLoading, error } = useAxios({
-    url: '/shop/products',
+    url: '/shop/products?',
   })
 
   useEffect(() => {
