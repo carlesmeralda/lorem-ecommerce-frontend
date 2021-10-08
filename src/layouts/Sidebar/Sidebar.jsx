@@ -5,6 +5,7 @@ import {
   SidebarContent,
   SidebarControl,
   SidebarItems,
+  SidebarLink,
   SidebarQueries,
   SidebarRows,
   SidebarSection,
@@ -35,12 +36,13 @@ function Sidebar() {
         <SidebarRows>
           <SidebarText>Choose category</SidebarText>
           <SidebarQueries>
-            <SidebarItems>Men's Apparel</SidebarItems>
-            <SidebarItems>Women's Apparel</SidebarItems>
-            <SidebarItems>Kid's Apparel</SidebarItems>
+            <SidebarLink to="/shop/products?category=Men%20Apparels">
+              <SidebarItems>Men Apparels</SidebarItems>
+            </SidebarLink>
+            <SidebarItems>Women Apparels</SidebarItems>
+            <SidebarItems>Kid Apparels</SidebarItems>
             <SidebarItems>Shoes</SidebarItems>
             <SidebarItems>Accessories</SidebarItems>
-            <SidebarItems>Sportswear</SidebarItems>
             <SidebarItems>Aesthetics</SidebarItems>
             <SidebarItems>Electronics & Gadgets</SidebarItems>
             <SidebarItems>Toys & Games</SidebarItems>
@@ -48,8 +50,9 @@ function Sidebar() {
             <SidebarItems>Home & Living</SidebarItems>
             <SidebarItems>Health</SidebarItems>
             <SidebarItems>Travel</SidebarItems>
+            <SidebarItems>Sports</SidebarItems>
             <SidebarItems>Entertainment</SidebarItems>
-            <SidebarItems>Groceries</SidebarItems>
+            <SidebarItems>Food</SidebarItems>
             <SidebarItems>Others</SidebarItems>
           </SidebarQueries>
         </SidebarRows>

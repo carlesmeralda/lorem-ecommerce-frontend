@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import { RiArrowRightSLine, RiArrowLeftSLine } from 'react-icons/ri'
+import { Link } from 'react-router-dom'
 
 export const SidebarSection = styled.div`
   position: fixed;
@@ -64,3 +65,12 @@ export const SidebarControl = styled.div`
 export const ControlRight = styled(RiArrowRightSLine)``
 
 export const ControlLeft = styled(RiArrowLeftSLine)``
+
+export const SidebarLink = styled(Link)`
+  color: #111;
+  transition: all 0.1s ease-out;
+
+  &:hover {
+    color: red;
+  }
+`

@@ -1,36 +1,68 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Container } from '../../components/Container'
 import ShopNavigation from '../../layouts/Navigation/ShopNavigation/ShopNavigation'
 import {
+  CartAction,
+  CartBody,
   CartBox,
   CartContent,
-  CartItems,
+  CartDelete,
+  CartHead,
+  CartImage,
+  CartInput,
+  CartItem,
   CartMain,
-  CartProduct,
-  CartProductImage,
-  CartProductInfo,
-  CartProductInfoDiv,
-  CartProductInfoName,
-  CartProductInfoSpan,
-  CartProductInfoSpanName,
-  CartProductPrice,
-  CartProductQty,
+  CartMinus,
+  CartName,
+  CartPlus,
+  CartPrice,
+  CartProductBody,
+  CartProductName,
+  CartQuantity,
+  CartTable,
   CartTitle,
+  CartTotal,
 } from './Cart.styled'
 
 const dummy = [
   {
     id: 'p1',
-    name: 'Product 1',
+    name: 'Product 1 ',
     description: 'test text',
-    image: 'asd',
+    image: 'https://demo.plugins360.com/wp-content/uploads/2017/12/demo.png',
     price: 10,
     category: 'test',
+    stocks: 10,
+  },
+  {
+    id: 'p2',
+    name: 'Product 2 test ',
+    description: 'test 2',
+    image: 'https://demo.plugins360.com/wp-content/uploads/2017/12/demo.png',
+    price: 25,
+    category: 'test2',
     stocks: 10,
   },
 ]
 
 function Cart() {
+  const [qtyValue, setQtyValue] = useState(1)
+
+  const plusHandler = () => {
+    if (qtyValue < 10) {
+      setQtyValue(prev => prev + 1)
+    }
+    // setQtyValue(prev => prev + 1)
+  }
+  const minusHandler = () => {
+    if (qtyValue > 1) {
+      setQtyValue(prev => prev - 1)
+    }
+    // setQtyValue(prev => prev - 1)
+  }
+
+  const inputHandler = e => {}
+
   return (
     <>
       <ShopNavigation />
@@ -39,27 +71,56 @@ function Cart() {
           <CartContent>
             <CartBox>
               <CartTitle>My Cart</CartTitle>
-              <CartItems>
-                <CartProductInfo>
-                  <CartProductInfoSpanName>
-                    Product Name
-                  </CartProductInfoSpanName>
-                  <CartProductInfoSpan>Price</CartProductInfoSpan>
-                  <CartProductInfoSpan>Quantity</CartProductInfoSpan>
-                  <CartProductInfoSpan>Total</CartProductInfoSpan>
-                  <CartProductInfoSpan>Action</CartProductInfoSpan>
-                </CartProductInfo>
-                {dummy.map(d => (
-                  <CartProduct>
-                    <CartProductInfoDiv>
-                      <CartProductImage src={d.image} />
-                      <CartProductInfoName>{d.name}</CartProductInfoName>
-                    </CartProductInfoDiv>
-                    <CartProductPrice>{d.price}</CartProductPrice>
-                    <CartProductQty></CartProductQty>
-                  </CartProduct>
+              <CartTable>
+                {dummy.map(item => (
+                  <CartItem>
+                    <CartProductName>
+                      <CartHead>
+                        <span>Product Name</span>
+                      </CartHead>
+                      <CartProductBody>
+                        <CartImage src={item.image} alt={item.name} />
+                        <CartName>{item.name}</CartName>
+                      </CartProductBody>
+                    </CartProductName>
+                    <CartPrice>
+                      <CartHead>
+                        <span>Price</span>
+                      </CartHead>
+                      <CartBody>{'$ ' + item.price}</CartBody>
+                    </CartPrice>
+                    <CartQuantity>
+                      <CartHead>
+                        <span>Quantity</span>
+                      </CartHead>
+                      <CartBody>
+                        <CartPlus onClick={plusHandler} />
+                        <CartInput
+                          type="number"
+                          max={dummy.stocks}
+                          value={qtyValue}
+                          onChange={inputHandler}
+                        />
+                        <CartMinus onClick={minusHandler} />
+                      </CartBody>
+                    </CartQuantity>
+                    <CartTotal>
+                      <CartHead>
+                        <span>Total</span>
+                      </CartHead>
+                      <CartBody>{'$ ' + item.price}</CartBody>
+                    </CartTotal>
+                    <CartAction>
+                      <CartHead>
+                        <span>Action</span>
+                      </CartHead>
+                      <CartBody>
+                        <CartDelete />
+                      </CartBody>
+                    </CartAction>
+                  </CartItem>
                 ))}
-              </CartItems>
+              </CartTable>
             </CartBox>
           </CartContent>
         </Container>
