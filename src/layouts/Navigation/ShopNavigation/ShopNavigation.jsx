@@ -2,6 +2,8 @@ import React from 'react'
 import { Header, Nav } from '../Navbar/Navbar.styled'
 import {
   ShopLeft,
+  ShopLink,
+  ShopLinkHome,
   ShopMiddle,
   ShopNavLinkLogo,
   ShopRight,
@@ -24,9 +26,8 @@ function ShopNavigation() {
     <Header>
       <Nav>
         <ShopLeft>
-          <ShopNavLinkLogo to="/">
-            <Logo />
-          </ShopNavLinkLogo>
+          <ShopLink to="/">Home</ShopLink>
+          <ShopLink to="/shop/products">Shop</ShopLink>
         </ShopLeft>
         <ShopMiddle>
           <NavSearchForm>

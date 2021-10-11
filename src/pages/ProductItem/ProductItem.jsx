@@ -17,6 +17,7 @@ import {
   ProductItemValue,
 } from './ProductItem.styled'
 import { Button } from '../../components/Button'
+import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner'
 
 function ProductItem() {
   const [qtyValue, setQtyValue] = useState(1)
@@ -48,7 +49,7 @@ function ProductItem() {
 
   if (error) return <div>{error}</div>
 
-  if (isLoading) return <div>Loading...</div>
+  if (isLoading) return <LoadingSpinner />
 
   return (
     <>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner'
 import ProductCard from '../../components/ProductCard/ProductCard'
 import { useAxios } from '../../hooks/useAxios'
 import {
@@ -24,11 +25,14 @@ function ProductShop() {
     <ProductShopSection>
       <ProductContainer>
         <h1>All Products</h1>
-        <ShopContent>
-          {products.map(product => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </ShopContent>
+        {isLoading && <LoadingSpinner />}
+        {!isLoading && (
+          <ShopContent>
+            {products.map(product => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </ShopContent>
+        )}
       </ProductContainer>
     </ProductShopSection>
   )

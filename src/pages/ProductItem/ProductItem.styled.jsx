@@ -24,6 +24,7 @@ export const ProductItemContent = styled.div`
 
 export const ProductItemImage = styled.div`
   height: 100%;
+
   grid-area: img;
   img {
     width: 100%;

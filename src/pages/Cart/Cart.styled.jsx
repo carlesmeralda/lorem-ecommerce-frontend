@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 import { BiPlus, BiMinus } from 'react-icons/bi'
 import { IoTrashSharp } from 'react-icons/io5'
+import { ActionButton } from '../../components/ActionButton'
 
 export const CartMain = styled.main`
   margin-top: 5em;
@@ -125,7 +126,34 @@ export const CartMinus = styled(BiMinus)`
 `
 
 export const CartDelete = styled(IoTrashSharp)`
-  color: red;
-  font-size: 1.2rem;
+  color: #940d0d;
+  font-size: 1.5rem;
   cursor: pointer;
 `
+
+export const CartSubTotal = styled.div`
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+`
+
+export const CartSubInfo = styled.div`
+  text-align: center;
+  h6 {
+    margin: 0 1rem;
+    font-size: 1rem;
+  }
+  h5 {
+    margin: 1.2rem;
+    font-size: 1.2rem;
+  }
+`
+
+export const CartButton = styled(ActionButton)``

@@ -5,6 +5,7 @@ import {
   CartAction,
   CartBody,
   CartBox,
+  CartButton,
   CartContent,
   CartDelete,
   CartHead,
@@ -19,6 +20,8 @@ import {
   CartProductBody,
   CartProductName,
   CartQuantity,
+  CartSubInfo,
+  CartSubTotal,
   CartTable,
   CartTitle,
   CartTotal,
@@ -123,6 +126,13 @@ function Cart() {
               </CartTable>
             </CartBox>
           </CartContent>
+          <CartSubTotal>
+            <CartSubInfo>
+              <h6>Subtotal (x) Items</h6>
+              <h5>$1000</h5>
+            </CartSubInfo>
+            <CartButton>Procced to Checkout</CartButton>
+          </CartSubTotal>
         </Container>
       </CartMain>
     </>

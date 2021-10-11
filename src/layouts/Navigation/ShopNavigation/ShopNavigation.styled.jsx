@@ -6,6 +6,7 @@ export const ShopLeft = styled.div`
   margin: 0;
   padding: 0;
   display: flex;
+  justify-content: center;
   align-items: center;
 `
 
@@ -23,11 +24,9 @@ export const ShopRight = styled.div`
   align-self: center;
 `
 
-export const ShopNavLinkLogo = styled(Link)`
+export const ShopLink = styled(Link)`
+  text-decoration: underline;
   color: #222;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  font-size: 2.5rem;
-  cursor: pointer;
+  font-size: 1rem;
+  margin-right: 0.4rem;
 `
