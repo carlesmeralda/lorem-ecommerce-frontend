@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useLocation } from 'react-router'
 import {
   ControlLeft,
   ControlRight,
@@ -25,6 +26,9 @@ function Sidebar() {
         <SidebarRows>
           <SidebarText>Sort by</SidebarText>
           <SidebarQueries>
+            <SidebarLink to="/shop/products">
+              <SidebarItems>All Products</SidebarItems>
+            </SidebarLink>
             <SidebarItems>New Arrivals</SidebarItems>
             <SidebarItems>Top Sales</SidebarItems>
             <SidebarItems>Asending</SidebarItems>
@@ -39,21 +43,51 @@ function Sidebar() {
             <SidebarLink to="/shop/products?category=Men%20Apparels">
               <SidebarItems>Men Apparels</SidebarItems>
             </SidebarLink>
-            <SidebarItems>Women Apparels</SidebarItems>
-            <SidebarItems>Kid Apparels</SidebarItems>
-            <SidebarItems>Shoes</SidebarItems>
-            <SidebarItems>Accessories</SidebarItems>
-            <SidebarItems>Aesthetics</SidebarItems>
-            <SidebarItems>Electronics & Gadgets</SidebarItems>
-            <SidebarItems>Toys & Games</SidebarItems>
-            <SidebarItems>Arts & Crafts</SidebarItems>
-            <SidebarItems>Home & Living</SidebarItems>
-            <SidebarItems>Health</SidebarItems>
-            <SidebarItems>Travel</SidebarItems>
-            <SidebarItems>Sports</SidebarItems>
-            <SidebarItems>Entertainment</SidebarItems>
-            <SidebarItems>Food</SidebarItems>
-            <SidebarItems>Others</SidebarItems>
+            <SidebarLink to="/shop/products?category=Women%20Apparels">
+              <SidebarItems>Women Apparels</SidebarItems>
+            </SidebarLink>
+            <SidebarLink to="/shop/products?category=Kid%20Apparels">
+              <SidebarItems>Kid Apparels</SidebarItems>
+            </SidebarLink>
+            <SidebarLink to="/shop/products?category=Shoes">
+              <SidebarItems>Shoes</SidebarItems>
+            </SidebarLink>
+            <SidebarLink to="/shop/products?category=Accessories">
+              <SidebarItems>Accessories</SidebarItems>
+            </SidebarLink>
+            <SidebarLink to="/shop/products?category=Aesthetics">
+              <SidebarItems>Aesthetics</SidebarItems>
+            </SidebarLink>
+            <SidebarLink to="/shop/products?category=Electronics%20%26%20Gadgets">
+              <SidebarItems>Electronics & Gadgets</SidebarItems>
+            </SidebarLink>
+            <SidebarLink to="/shop/products?category=Toys%20%26%20Games">
+              <SidebarItems>Toys & Games</SidebarItems>
+            </SidebarLink>
+            <SidebarLink to="/shop/products?category=Arts%20%26%20Craft">
+              <SidebarItems>Arts & Crafts</SidebarItems>
+            </SidebarLink>
+            <SidebarLink to="/shop/products?category=Home%20%26%20Living">
+              <SidebarItems>Home & Living</SidebarItems>
+            </SidebarLink>
+            <SidebarLink to="/shop/products?category=Health">
+              <SidebarItems>Health</SidebarItems>
+            </SidebarLink>
+            <SidebarLink to="/shop/products?category=Travel">
+              <SidebarItems>Travel</SidebarItems>
+            </SidebarLink>
+            <SidebarLink to="/shop/products?category=Sports">
+              <SidebarItems>Sports</SidebarItems>
+            </SidebarLink>
+            <SidebarLink to="/shop/products?category=Enterntainment">
+              <SidebarItems>Entertainment</SidebarItems>
+            </SidebarLink>
+            <SidebarLink to="/shop/products?category=Food">
+              <SidebarItems>Food</SidebarItems>
+            </SidebarLink>
+            <SidebarLink to="/shop/products?category=Others">
+              <SidebarItems>Others</SidebarItems>
+            </SidebarLink>
           </SidebarQueries>
         </SidebarRows>
       </SidebarContent>
