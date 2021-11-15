@@ -26,6 +26,7 @@ export const NavDiv = styled.div`
 export const NavActionLink = styled(Link)`
   color: #222;
   display: flex;
+  position: relative;
 `
 
 export const NavCart = styled(RiShoppingCartLine)``
@@ -79,4 +80,17 @@ export const NavSearchButton = styled.button`
   font-size: 1.3rem;
   display: flex;
   align-items: center;
+`
+
+export const NavCount = styled.span`
+  position: absolute;
+  bottom: -3px;
+  right: -2px;
+  font-size: 11px;
+  border-radius: 50%;
+  background-color: #940d0d;
+  height: 13px;
+  width: 15px;
+  color: white;
+  text-align: center;
 `

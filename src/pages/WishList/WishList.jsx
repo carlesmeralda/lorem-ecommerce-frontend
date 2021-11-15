@@ -30,15 +30,6 @@ const dummy = [
     category: 'test',
     stocks: 10,
   },
-  {
-    id: 'p2',
-    name: 'Product 2 test ',
-    description: 'test 2',
-    image: 'https://demo.plugins360.com/wp-content/uploads/2017/12/demo.png',
-    price: 25,
-    category: 'test2',
-    stocks: 10,
-  },
 ]
 
 function WishList() {
@@ -52,7 +43,7 @@ function WishList() {
               <WishTitle>My Wish List</WishTitle>
               <WishTable>
                 {dummy.map(item => (
-                  <WishItem>
+                  <WishItem key={item.id}>
                     <WishProductName>
                       <WishHead>
                         <span>Product Name</span>

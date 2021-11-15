@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Container } from '../../components/Container'
+import { ShopContext } from '../../context/shopContext'
 import ShopNavigation from '../../layouts/Navigation/ShopNavigation/ShopNavigation'
+import { ActionButton } from '../../components/ActionButton'
 import {
   CartAction,
   CartBody,
@@ -37,34 +39,29 @@ const dummy = [
     category: 'test',
     stocks: 10,
   },
-  {
-    id: 'p2',
-    name: 'Product 2 test ',
-    description: 'test 2',
-    image: 'https://demo.plugins360.com/wp-content/uploads/2017/12/demo.png',
-    price: 25,
-    category: 'test2',
-    stocks: 10,
-  },
 ]
 
 function Cart() {
   const [qtyValue, setQtyValue] = useState(1)
 
+  const shopCtx = useContext(ShopContext)
+
   const plusHandler = () => {
-    if (qtyValue < 10) {
+    if (qtyValue < dummy[0].stocks) {
       setQtyValue(prev => prev + 1)
     }
-    // setQtyValue(prev => prev + 1)
   }
   const minusHandler = () => {
     if (qtyValue > 1) {
       setQtyValue(prev => prev - 1)
     }
-    // setQtyValue(prev => prev - 1)
   }
 
-  const inputHandler = e => {}
+  const removeItemHandler = productId => {}
+
+  // needs refactor
+  // maybe use forEach for solving the subtotal
+  const totalPrice = shopCtx.cart.reduce((curr, next) => curr + next.price, 0)
 
   return (
     <>
@@ -76,7 +73,7 @@ function Cart() {
               <CartTitle>My Cart</CartTitle>
               <CartTable>
                 {dummy.map(item => (
-                  <CartItem>
+                  <CartItem key={item.id}>
                     <CartProductName>
                       <CartHead>
                         <span>Product Name</span>
@@ -102,7 +99,7 @@ function Cart() {
                           type="number"
                           max={dummy.stocks}
                           value={qtyValue}
-                          onChange={inputHandler}
+                          onChange={() => {}}
                         />
                         <CartMinus onClick={minusHandler} />
                       </CartBody>
@@ -118,7 +115,7 @@ function Cart() {
                         <span>Action</span>
                       </CartHead>
                       <CartBody>
-                        <CartDelete />
+                        <CartDelete onClick={removeItemHandler} />
                       </CartBody>
                     </CartAction>
                   </CartItem>
@@ -129,9 +126,12 @@ function Cart() {
           <CartSubTotal>
             <CartSubInfo>
               <h6>Subtotal (x) Items</h6>
-              <h5>$1000</h5>
+              <h5>${totalPrice}</h5>
             </CartSubInfo>
-            <CartButton>Procced to Checkout</CartButton>
+            <CartButton>
+              <ActionButton>Checkout</ActionButton>
+              <ActionButton primary>Clear Cart</ActionButton>
+            </CartButton>
           </CartSubTotal>
         </Container>
       </CartMain>

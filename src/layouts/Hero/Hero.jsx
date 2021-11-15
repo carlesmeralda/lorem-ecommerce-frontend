@@ -35,7 +35,7 @@ function Hero() {
             </Link>
           </HeroInfo>
           <HeroGraphic>
-            <HeroImage src={hero} />
+            <HeroImage src={hero} alt="Hero Image" />
           </HeroGraphic>
         </HeroContent>
       </Container>

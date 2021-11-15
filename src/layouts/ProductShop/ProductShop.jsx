@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useHistory, useLocation } from 'react-router'
+import { useLocation } from 'react-router'
 
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner'
 import ProductCard from '../../components/ProductCard/ProductCard'
@@ -36,13 +36,14 @@ function ProductShop() {
       <ProductContainer>
         <h1>{query.get('category') || 'All Products'} </h1>
         {isLoading && <LoadingSpinner />}
-        {!isLoading && (
+        {!isLoading && !error && (
           <ShopContent>
             {products.map(product => (
               <ProductCard key={product.id} product={product} />
             ))}
           </ShopContent>
         )}
+        {error && <p>No products found. Try again later.</p>}
       </ProductContainer>
     </ProductShopSection>
   )

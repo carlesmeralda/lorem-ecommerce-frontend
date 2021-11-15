@@ -20,6 +20,8 @@ import { Container } from '../../components/Container'
 import { Button } from '../../components/Button'
 
 function Contact() {
+  const currentYear = new Date().getFullYear()
+
   return (
     <ContactFooter id="contact">
       <Container>
@@ -44,7 +46,7 @@ function Contact() {
               <ContactGg />
             </ContactSocials>
             <ContactDetails>
-              Copyright &copy; 2021. All Rights Reserved.
+              Copyright &copy; {currentYear}. All Rights Reserved.
             </ContactDetails>
           </ContactInfo>
         </ContactContent>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { useAxios } from '../../hooks/useAxios'
 import ShopNavigation from '../../layouts/Navigation/ShopNavigation/ShopNavigation'
@@ -18,11 +18,16 @@ import {
 } from './ProductItem.styled'
 import { Button } from '../../components/Button'
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner'
+import { isInCart, isInWish } from '../../../src/helpers'
+import { ShopContext } from '../../context/shopContext'
+import { SecondaryButton } from '../../components/SecondaryButton'
 
 function ProductItem() {
   const [qtyValue, setQtyValue] = useState(1)
   const [product, setProduct] = useState()
   const { productId } = useParams()
+
+  const { cart, wishlist, addToCart, addToWish } = useContext(ShopContext)
 
   const { data, isLoading, error } = useAxios({
     url: '/shop/products/' + productId,
@@ -44,8 +49,6 @@ function ProductItem() {
       setQtyValue(prev => prev - 1)
     }
   }
-
-  const inputHandler = e => {}
 
   if (error) return <div>{error}</div>
 
@@ -88,14 +91,25 @@ function ProductItem() {
                   type="number"
                   max={product.stocks}
                   value={qtyValue}
-                  onChange={inputHandler}
+                  onChange={() => {}}
                 />
                 <ProductItemMinus onClick={minusHandler} />
               </ProductItemQty>
             </ProductItemInfo>
             <ProductItemActions>
-              <Button>Add to Cart</Button>
-              <Button primary>Add to WishList</Button>
+              {isInCart(product, cart) ? (
+                <SecondaryButton>Item in Cart</SecondaryButton>
+              ) : (
+                <Button onClick={() => addToCart(product)}>Add to Cart</Button>
+              )}
+
+              {isInWish(product, wishlist) ? (
+                <SecondaryButton>Wished!!</SecondaryButton>
+              ) : (
+                <Button primary onClick={() => addToWish(product)}>
+                  Add to WishList
+                </Button>
+              )}
             </ProductItemActions>
           </ProductItemContent>
         </Container>

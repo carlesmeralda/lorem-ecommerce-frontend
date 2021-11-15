@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 import { BiPlus, BiMinus } from 'react-icons/bi'
 import { IoTrashSharp } from 'react-icons/io5'
-import { ActionButton } from '../../components/ActionButton'
 
 export const CartMain = styled.main`
   margin-top: 5em;
@@ -156,4 +155,7 @@ export const CartSubInfo = styled.div`
   }
 `
 
-export const CartButton = styled(ActionButton)``
+export const CartButton = styled.div`
+  display: flex;
+  justify-content: center;
+`

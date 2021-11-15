@@ -10,6 +10,7 @@ import {
 import { Container } from '../../components/Container'
 import ProductCard from '../../components/ProductCard/ProductCard'
 import { useAxios } from '../../hooks/useAxios'
+import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner'
 
 function Products() {
   const [products, setProducts] = useState([])
@@ -29,11 +30,15 @@ function Products() {
       <Container>
         <ProductContent>
           <ProductH1>Our Products</ProductH1>
-          <ProductSample>
-            {products.map(product => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </ProductSample>
+          {isLoading && <LoadingSpinner />}
+          {!isLoading && !error && (
+            <ProductSample>
+              {products.map(product => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </ProductSample>
+          )}
+          {error && <p>No products found. Try again later.</p>}
           <ProductButton to="/shop/products">View All Products</ProductButton>
         </ProductContent>
       </Container>

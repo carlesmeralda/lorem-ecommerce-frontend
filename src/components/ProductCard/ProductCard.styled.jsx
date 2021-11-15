@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { Button } from '../Button'
-
+import { SecondaryButton } from '../SecondaryButton'
 import { Link } from 'react-router-dom'
 
 export const CardDiv = styled.div`
@@ -66,6 +66,14 @@ export const AddCart = styled(Button)`
   grid-area: cart;
 `
 
+export const InCart = styled(SecondaryButton)`
+  grid-area: cart;
+`
+
 export const AddWish = styled(Button)`
+  grid-area: wish;
+`
+
+export const InWish = styled(SecondaryButton)`
   grid-area: wish;
 `

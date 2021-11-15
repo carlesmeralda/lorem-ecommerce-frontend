@@ -29,6 +29,11 @@ export const ProductItemImage = styled.div`
   img {
     width: 100%;
     height: 100%;
+    object-fit: contain;
+  }
+
+  @media screen and (min-width: 1000px) {
+    max-height: 500px;
   }
 `
 

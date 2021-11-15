@@ -1,4 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { isInCart, isInWish } from '../../../src/helpers'
+import { ShopContext } from '../../context/shopContext'
+import { ProductItemContent } from '../../pages/ProductItem/ProductItem.styled'
 
 import {
   CardDiv,
@@ -10,9 +13,13 @@ import {
   AddCart,
   AddWish,
   CardLink,
+  InCart,
+  InWish,
 } from './ProductCard.styled'
 
 function ProductCard({ product }) {
+  const { cart, wishlist, addToCart, addToWish } = useContext(ShopContext)
+
   let newDesc
   if (product.description.length > 30) {
     newDesc = product.description.slice(0, 31) + '...'
@@ -29,8 +36,20 @@ function ProductCard({ product }) {
         <CardTitle>{product.name}</CardTitle>
         <CardPrice>{product.price}</CardPrice>
         <CardDescription>{newDesc}</CardDescription>
-        <AddCart>Add to Cart</AddCart>
-        <AddWish primary>Add to WishList</AddWish>
+
+        {isInCart(product, cart) ? (
+          <InCart>Item in Cart</InCart>
+        ) : (
+          <AddCart onClick={() => addToCart(product)}>Add to Cart</AddCart>
+        )}
+
+        {isInWish(product, wishlist) ? (
+          <InWish>Wished!!</InWish>
+        ) : (
+          <AddWish primary onClick={() => addToWish(product)}>
+            Add to WishList
+          </AddWish>
+        )}
       </CardContent>
     </CardDiv>
   )
