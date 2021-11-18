@@ -1,13 +1,17 @@
 import styled from 'styled-components'
 
 import { IoTrashSharp } from 'react-icons/io5'
-import { IoBagAddOutline } from 'react-icons/io5'
+import { FaCartPlus } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
 export const WishMain = styled.main`
   margin-top: 5em;
 `
 
-export const WishContent = styled.div``
+export const WishContent = styled.div`
+  max-height: calc(100vh - 156px);
+  overflow: scroll;
+`
 
 export const WishBox = styled.div`
   border: 1px solid #ccc;
@@ -87,7 +91,7 @@ export const WishImage = styled.img`
   object-fit: cover;
 `
 
-export const WishAdd = styled(IoBagAddOutline)`
+export const WishAdd = styled(FaCartPlus)`
   color: #1d3573;
   font-size: 1.5rem;
   cursor: pointer;
@@ -99,4 +103,37 @@ export const WishDelete = styled(IoTrashSharp)`
   font-size: 1.5rem;
   cursor: pointer;
   margin: 0 0.5rem;
+`
+
+export const WishTable2 = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+export const WishLink = styled(Link)`
+  grid-area: product;
+  color: #222;
+`
+
+export const WishLink2 = styled(Link)`
+  margin-top: 1rem;
+  text-decoration: underline;
+`
+
+export const WishFooter = styled.div`
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+`
+
+export const WishButton = styled.div`
+  display: flex;
+  justify-content: center;
 `

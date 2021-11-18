@@ -50,6 +50,8 @@ function ProductItem() {
     }
   }
 
+  const submitProduct = { ...product, quantity: qtyValue }
+
   if (error) return <div>{error}</div>
 
   if (isLoading) return <LoadingSpinner />
@@ -98,9 +100,11 @@ function ProductItem() {
             </ProductItemInfo>
             <ProductItemActions>
               {isInCart(product, cart) ? (
-                <SecondaryButton>Item in Cart</SecondaryButton>
+                <SecondaryButton>Item in cart</SecondaryButton>
               ) : (
-                <Button onClick={() => addToCart(product)}>Add to Cart</Button>
+                <Button onClick={() => addToCart(submitProduct)}>
+                  Add to Cart
+                </Button>
               )}
 
               {isInWish(product, wishlist) ? (

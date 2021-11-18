@@ -21,9 +21,7 @@ import {
 import { ShopContext } from '../../../context/shopContext'
 
 function ShopNavigation() {
-  const shopCtx = useContext(ShopContext)
-  // console.log('Cart:', shopCtx.cart)
-  // console.log('Cart Items:', shopCtx.cart.length)
+  const { cart, wishlist } = useContext(ShopContext)
 
   return (
     <Header>
@@ -44,17 +42,15 @@ function ShopNavigation() {
           <NavDiv>
             <NavActionLink to="/shop/wishlist">
               <NavFavorite />
-              {shopCtx.wishlist.length > 0 ? (
-                <NavCount>{shopCtx.wishlist.length}</NavCount>
+              {wishlist.length > 0 ? (
+                <NavCount>{wishlist.length}</NavCount>
               ) : null}
             </NavActionLink>
           </NavDiv>
           <NavDiv>
             <NavActionLink to="/shop/cart">
               <NavCart />
-              {shopCtx.cart.length > 0 ? (
-                <NavCount>{shopCtx.cart.length}</NavCount>
-              ) : null}
+              {cart.length > 0 ? <NavCount>{cart.length}</NavCount> : null}
             </NavActionLink>
           </NavDiv>
           <NavDiv>

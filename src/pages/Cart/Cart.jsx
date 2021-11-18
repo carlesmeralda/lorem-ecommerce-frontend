@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { Container } from '../../components/Container'
 import { ShopContext } from '../../context/shopContext'
 import ShopNavigation from '../../layouts/Navigation/ShopNavigation/ShopNavigation'
@@ -14,6 +14,8 @@ import {
   CartImage,
   CartInput,
   CartItem,
+  CartLink,
+  CartLink2,
   CartMain,
   CartMinus,
   CartName,
@@ -25,43 +27,23 @@ import {
   CartSubInfo,
   CartSubTotal,
   CartTable,
+  CartTable2,
   CartTitle,
   CartTotal,
 } from './Cart.styled'
-
-const dummy = [
-  {
-    id: 'p1',
-    name: 'Product 1 ',
-    description: 'test text',
-    image: 'https://demo.plugins360.com/wp-content/uploads/2017/12/demo.png',
-    price: 10,
-    category: 'test',
-    stocks: 10,
-  },
-]
+import { useHistory } from 'react-router'
 
 function Cart() {
-  const [qtyValue, setQtyValue] = useState(1)
+  const { cart, deleteCart, clearCart, increase, decrease } =
+    useContext(ShopContext)
 
-  const shopCtx = useContext(ShopContext)
+  const { push } = useHistory()
 
-  const plusHandler = () => {
-    if (qtyValue < dummy[0].stocks) {
-      setQtyValue(prev => prev + 1)
-    }
-  }
-  const minusHandler = () => {
-    if (qtyValue > 1) {
-      setQtyValue(prev => prev - 1)
-    }
-  }
-
-  const removeItemHandler = productId => {}
-
-  // needs refactor
-  // maybe use forEach for solving the subtotal
-  const totalPrice = shopCtx.cart.reduce((curr, next) => curr + next.price, 0)
+  const totalItems = cart.reduce((curr, next) => curr + next.quantity, 0)
+  const totalPrice = cart.reduce(
+    (curr, next) => curr + next.quantity * next.price,
+    0
+  )
 
   return (
     <>
@@ -71,51 +53,67 @@ function Cart() {
           <CartContent>
             <CartBox>
               <CartTitle>My Cart</CartTitle>
+              {cart.length < 1 && (
+                <CartTable2>
+                  No items in the cart yet.
+                  <CartLink2 to={`/shop/products/`}>View Shop</CartLink2>
+                </CartTable2>
+              )}
               <CartTable>
-                {dummy.map(item => (
+                {cart.map(item => (
                   <CartItem key={item.id}>
-                    <CartProductName>
-                      <CartHead>
-                        <span>Product Name</span>
-                      </CartHead>
-                      <CartProductBody>
-                        <CartImage src={item.image} alt={item.name} />
-                        <CartName>{item.name}</CartName>
-                      </CartProductBody>
-                    </CartProductName>
+                    <CartLink to={`/shop/products/${item.id}`}>
+                      <CartProductName>
+                        <CartHead>
+                          <span>Product Name</span>
+                        </CartHead>
+                        <CartProductBody>
+                          <CartImage src={item.image} alt={item.name} />
+                          <CartName>{item.name}</CartName>
+                        </CartProductBody>
+                      </CartProductName>
+                    </CartLink>
                     <CartPrice>
                       <CartHead>
                         <span>Price</span>
                       </CartHead>
-                      <CartBody>{'$ ' + item.price}</CartBody>
+                      <CartBody>
+                        {'$ ' +
+                          Math.round((item.price + Number.EPSILON) * 100) / 100}
+                      </CartBody>
                     </CartPrice>
                     <CartQuantity>
                       <CartHead>
-                        <span>Quantity</span>
+                        <span>Quantity ({item.stocks})</span>
                       </CartHead>
                       <CartBody>
-                        <CartPlus onClick={plusHandler} />
+                        <CartPlus onClick={() => increase(item)} />
                         <CartInput
                           type="number"
-                          max={dummy.stocks}
-                          value={qtyValue}
+                          value={item.quantity}
                           onChange={() => {}}
                         />
-                        <CartMinus onClick={minusHandler} />
+                        <CartMinus onClick={() => decrease(item)} />
                       </CartBody>
                     </CartQuantity>
                     <CartTotal>
                       <CartHead>
                         <span>Total</span>
                       </CartHead>
-                      <CartBody>{'$ ' + item.price}</CartBody>
+                      <CartBody>
+                        {'$ ' +
+                          Math.round(
+                            (item.price * item.quantity + Number.EPSILON) * 100
+                          ) /
+                            100}
+                      </CartBody>
                     </CartTotal>
                     <CartAction>
                       <CartHead>
                         <span>Action</span>
                       </CartHead>
                       <CartBody>
-                        <CartDelete onClick={removeItemHandler} />
+                        <CartDelete onClick={() => deleteCart(item)} />
                       </CartBody>
                     </CartAction>
                   </CartItem>
@@ -125,12 +123,16 @@ function Cart() {
           </CartContent>
           <CartSubTotal>
             <CartSubInfo>
-              <h6>Subtotal (x) Items</h6>
-              <h5>${totalPrice}</h5>
+              <h6>Subtotal ({totalItems}) Items</h6>
+              <h5>${Math.round((totalPrice + Number.EPSILON) * 100) / 100}</h5>
             </CartSubInfo>
             <CartButton>
-              <ActionButton>Checkout</ActionButton>
-              <ActionButton primary>Clear Cart</ActionButton>
+              <ActionButton onClick={() => push('/shop/checkout')}>
+                Checkout
+              </ActionButton>
+              <ActionButton primary onClick={() => clearCart()}>
+                Clear Cart
+              </ActionButton>
             </CartButton>
           </CartSubTotal>
         </Container>

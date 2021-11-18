@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { Link } from 'react-router-dom'
+
 import { BiPlus, BiMinus } from 'react-icons/bi'
 import { IoTrashSharp } from 'react-icons/io5'
 
@@ -7,7 +9,10 @@ export const CartMain = styled.main`
   margin-top: 5em;
 `
 
-export const CartContent = styled.div``
+export const CartContent = styled.div`
+  max-height: calc(100vh - 238px);
+  overflow: scroll;
+`
 
 export const CartBox = styled.div`
   border: 1px solid #ccc;
@@ -37,8 +42,12 @@ export const CartItem = styled.div`
   }
 `
 
-export const CartProductName = styled.div`
+export const CartLink = styled(Link)`
   grid-area: product;
+  color: #222;
+`
+
+export const CartProductName = styled.div`
   border: 0.1px solid #ddd;
 `
 
@@ -158,4 +167,14 @@ export const CartSubInfo = styled.div`
 export const CartButton = styled.div`
   display: flex;
   justify-content: center;
+`
+
+export const CartTable2 = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+export const CartLink2 = styled(Link)`
+  margin-top: 1rem;
+  text-decoration: underline;
 `

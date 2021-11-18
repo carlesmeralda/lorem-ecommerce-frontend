@@ -5,12 +5,16 @@ export const ShopContext = createContext({
   cart: [],
   wishlist: [],
   addToCart: product => {},
-  deleteCart: productID => {},
+  deleteCart: product => {},
   addToWish: product => {},
-  deleteWish: productID => {},
+  deleteWish: product => {},
+  increase: product => {},
+  decrease: product => {},
   clearCart: () => {},
+  clearWish: () => {},
 })
 
+// change empty array state when backend is setup
 const shopInitState = { cart: [], wishlist: [] }
 
 const ShopContextProvider = ({ children }) => {
@@ -23,10 +27,10 @@ const ShopContextProvider = ({ children }) => {
     })
   }
 
-  const deleteCart = productId => {
+  const deleteCart = product => {
     dispatch({
       type: 'DELETE_CART',
-      payload: productId,
+      payload: product,
     })
   }
 
@@ -37,10 +41,10 @@ const ShopContextProvider = ({ children }) => {
     })
   }
 
-  const deleteWish = productId => {
+  const deleteWish = product => {
     dispatch({
       type: 'DELETE_WISH',
-      payload: productId,
+      payload: product,
     })
   }
 
@@ -50,10 +54,29 @@ const ShopContextProvider = ({ children }) => {
     })
   }
 
+  const clearWish = () => {
+    dispatch({
+      type: 'CLEAR_WISH',
+    })
+  }
+
+  const increase = product => {
+    dispatch({
+      type: 'INCREASE',
+      payload: product,
+    })
+  }
+
+  const decrease = product => {
+    dispatch({
+      type: 'DECREASE',
+      payload: product,
+    })
+  }
+
   return (
     <ShopContext.Provider
       value={{
-        //...state
         cart: state.cart,
         wishlist: state.wishlist,
         addToCart,
@@ -61,6 +84,9 @@ const ShopContextProvider = ({ children }) => {
         addToWish,
         deleteWish,
         clearCart,
+        clearWish,
+        increase,
+        decrease,
       }}
     >
       {children}

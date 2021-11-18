@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { isInCart, isInWish } from '../../../src/helpers'
 import { ShopContext } from '../../context/shopContext'
-import { ProductItemContent } from '../../pages/ProductItem/ProductItem.styled'
 
 import {
   CardDiv,

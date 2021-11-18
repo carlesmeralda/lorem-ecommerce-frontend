@@ -44,6 +44,7 @@ export const SidebarQueries = styled.ul`
 
 export const SidebarItems = styled.li`
   margin: 4px;
+  font-size: 0.9rem;
 `
 
 export const SidebarControl = styled.div`

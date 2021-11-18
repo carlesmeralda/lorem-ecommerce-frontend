@@ -6,6 +6,7 @@ import ScrollToTop from './components/ScrollToTop'
 
 import GlobalStyles from './globalStyles'
 import Cart from './pages/Cart/Cart'
+import Checkout from './pages/Checkout/Checkout'
 import Homepage from './pages/Homepage'
 import ProductItem from './pages/ProductItem/ProductItem'
 import Shop from './pages/Shop/Shop'
@@ -31,6 +32,9 @@ function App() {
         </Route>
         <Route path="/shop/wishlist">
           <WishList />
+        </Route>
+        <Route path="/shop/checkout">
+          <Checkout />
         </Route>
         <Route path="/login">
           <Login />
