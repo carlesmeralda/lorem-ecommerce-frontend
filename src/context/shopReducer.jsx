@@ -1,7 +1,12 @@
-// const storeCart = cart => {
-//   const storedCart = cart.length > 0 ? cart : []
-//   localStorage.setItem('cart', JSON.stringify(storedCart))
-// }
+const storeCart = cart => {
+  const storedCart = cart.length > 0 ? cart : []
+  localStorage.setItem('cart', JSON.stringify(storedCart))
+}
+
+const storeWish = wishList => {
+  const storedWish = wishList.length > 0 ? wishList : []
+  localStorage.setItem('wishList', JSON.stringify(storedWish))
+}
 
 const shopReducer = (state, action) => {
   switch (action.type) {
@@ -15,6 +20,7 @@ const shopReducer = (state, action) => {
       return {
         ...state,
         cart: [...state.cart],
+        ...storeCart(state.cart),
       }
     case 'DELETE_CART':
       const deleteCart = state.cart.filter(
@@ -23,6 +29,7 @@ const shopReducer = (state, action) => {
       return {
         ...state,
         cart: deleteCart,
+        ...storeCart(deleteCart),
       }
     case 'ADD_WISH':
       if (!state.wishlist.find(item => item.id === action.payload.id)) {
@@ -33,6 +40,7 @@ const shopReducer = (state, action) => {
       return {
         ...state,
         wishlist: [...state.wishlist],
+        ...storeWish(state.wishlist),
       }
     case 'DELETE_WISH':
       const deleteWish = state.wishlist.filter(
@@ -41,6 +49,7 @@ const shopReducer = (state, action) => {
       return {
         ...state,
         wishlist: deleteWish,
+        ...storeWish(deleteWish),
       }
     case 'INCREASE':
       const incIndex = state.cart.findIndex(
@@ -52,6 +61,7 @@ const shopReducer = (state, action) => {
       return {
         ...state,
         cart: [...state.cart],
+        ...storeCart(state.cart),
       }
     case 'DECREASE':
       const decIndex = state.cart.findIndex(
@@ -63,13 +73,16 @@ const shopReducer = (state, action) => {
       return {
         ...state,
         cart: [...state.cart],
+        ...storeCart(state.cart),
       }
     case 'CLEAR_CART':
+      localStorage.removeItem('cart')
       return {
         ...state,
         cart: [],
       }
     case 'CLEAR_WISH':
+      localStorage.removeItem('wishList')
       return {
         ...state,
         wishlist: [],

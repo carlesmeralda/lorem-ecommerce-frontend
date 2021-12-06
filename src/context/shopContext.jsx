@@ -1,5 +1,14 @@
-import { createContext, useReducer } from 'react'
+import { createContext, useReducer, useState, useEffect } from 'react'
+// import { useAxios } from '../hooks/useAxios'
 import shopReducer from './shopReducer'
+
+const cartFromStorage = localStorage.getItem('cart')
+  ? JSON.parse(localStorage.getItem('cart'))
+  : []
+
+const wishFromStorage = localStorage.getItem('wishList')
+  ? JSON.parse(localStorage.getItem('wishList'))
+  : []
 
 export const ShopContext = createContext({
   cart: [],
@@ -14,10 +23,43 @@ export const ShopContext = createContext({
   clearWish: () => {},
 })
 
-// change empty array state when backend is setup
-const shopInitState = { cart: [], wishlist: [] }
-
 const ShopContextProvider = ({ children }) => {
+  //////////  TODO: set initial state only after done fetching  ///////
+
+  // const [cartState, setCartState] = useState([])
+  // const [wishState, setWishState] = useState([])
+
+  // const {
+  //   data: cartData,
+  //   isLoading: cartIsLoading,
+  //   error: cartError,
+  // } = useAxios({
+  //   url: '/shop/cart/',
+  // })
+
+  // const {
+  //   data: wishData,
+  //   isLoading: wishIsLoading,
+  //   error: wishError,
+  // } = useAxios({
+  //   url: '/shop/wishlist/',
+  // })
+
+  // useEffect(() => {
+  //   if (cartData !== null) {
+  //     setCartState(cartData.cart)
+  //   }
+  // }, [cartData])
+
+  // useEffect(() => {
+  //   if (wishData !== null) {
+  //     setWishState(wishData.wishList)
+  //   }
+  // }, [wishData])
+
+  // const shopInitState = { cart: cartState, wishlist: wishState }
+  const shopInitState = { cart: cartFromStorage, wishlist: wishFromStorage }
+
   const [state, dispatch] = useReducer(shopReducer, shopInitState)
 
   const addToCart = product => {

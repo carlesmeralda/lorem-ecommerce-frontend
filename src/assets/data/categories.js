@@ -5,7 +5,7 @@ export const category = [
   },
   {
     name: 'New Arrivals',
-    link: '/shop/products',
+    link: '/shop/products?new',
   },
   {
     name: 'Top Sales',
@@ -13,19 +13,19 @@ export const category = [
   },
   {
     name: 'Ascending',
-    link: '/shop/products',
+    link: '/shop/products?asc=true',
   },
   {
     name: 'Descending',
-    link: '/shop/products',
+    link: '/shop/products?desc=true',
   },
   {
     name: 'Lowest Price',
-    link: '/shop/products',
+    link: '/shop/products?lowest=true',
   },
   {
     name: 'Highest Price',
-    link: '/shop/products',
+    link: '/shop/products?highest=true',
   },
 ]
 

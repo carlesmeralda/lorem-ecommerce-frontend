@@ -45,6 +45,8 @@ function Cart() {
     0
   )
 
+  console.log(cart)
+
   return (
     <>
       <ShopNavigation />
@@ -56,7 +58,7 @@ function Cart() {
               {cart.length < 1 && (
                 <CartTable2>
                   No items in the cart yet.
-                  <CartLink2 to={`/shop/products/`}>View Shop</CartLink2>
+                  <CartLink2 to={`/shop/products/`}>Start Shopping</CartLink2>
                 </CartTable2>
               )}
               <CartTable>
