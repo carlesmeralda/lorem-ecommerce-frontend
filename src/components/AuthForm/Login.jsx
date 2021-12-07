@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router'
 import {
   AuthBackground,
   AuthButton,
@@ -17,6 +18,8 @@ function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const { push } = useHistory()
+
   const emailHandler = e => setEmail(e.target.value)
   const passwordHandler = e => setPassword(e.target.value)
 
@@ -24,6 +27,7 @@ function Login() {
     e.preventDefault()
 
     alert(JSON.stringify({ email, password }))
+    push('/')
   }
 
   return (
