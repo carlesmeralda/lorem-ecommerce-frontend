@@ -83,8 +83,8 @@ export const category2 = [
     link: '/shop/products?category=Sports',
   },
   {
-    name: 'Entertainment',
-    link: '/shop/products?category=Enterntainment',
+    name: 'Entertaiment',
+    link: '/shop/products?category=Entertainment',
   },
   {
     name: 'Food',

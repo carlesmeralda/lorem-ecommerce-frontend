@@ -14,9 +14,7 @@ function OrderSummary() {
   const { cart } = useContext(ShopContext)
 
   const totalPrice = cart.reduce(
-    (curr, next) =>
-      curr +
-      (Math.round((next.quantity + Number.EPSILON) * 100) / 100) * next.price,
+    (curr, next) => curr + next.quantity * next.price,
     0
   )
 
@@ -37,7 +35,9 @@ function OrderSummary() {
           )
         })}
       </OSList>
-      <OSTotal>Total: ${totalPrice}</OSTotal>
+      <OSTotal>
+        Total: ${Math.round((totalPrice + Number.EPSILON) * 100) / 100}
+      </OSTotal>
     </OSCard>
   )
 }

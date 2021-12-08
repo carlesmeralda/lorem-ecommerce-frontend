@@ -11,6 +11,9 @@ function CheckoutForm() {
   const [email, setEmail] = useState('')
   const [address, setAddress] = useState('')
 
+  const stripe = useStripe()
+  const elements = useElements()
+
   const { push } = useHistory()
 
   const { clearCart } = useContext(ShopContext)

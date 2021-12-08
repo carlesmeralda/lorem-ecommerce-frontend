@@ -45,8 +45,6 @@ function Cart() {
     0
   )
 
-  console.log(cart)
-
   return (
     <>
       <ShopNavigation />
